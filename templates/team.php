@@ -28,6 +28,7 @@ Template Name: Équipe
         'order'         => 'ASC'
       );
       $users = get_users($args);
+      // print_r($users);
 
       if ( $users ) : ?>
         <ul class="list-unstyled mt-8 row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4">
@@ -36,6 +37,8 @@ Template Name: Équipe
             $tel      = get_field('user_tel', 'user_' . $user->ID );
             $photo    = get_field('user_photo', 'user_' . $user->ID );
             $team     = get_field('user_equipe', 'user_' . $user->ID );
+            $usersort = get_field('user_sort', 'user_' . $user->ID );
+            print_r($usersort);
           
           ?>
             <?php if ( $team ) : ?>

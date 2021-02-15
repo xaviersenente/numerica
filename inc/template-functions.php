@@ -126,7 +126,10 @@ function numerica_scripts() {
  */
 function numerica_custom_query_vars( $query ) {
   // global $wp_query;
-  if ( $query->is_main_query() ) {
+
+	if ( is_admin() || ! $query->is_main_query() ){
+		return;
+	} elseif ( $query->is_main_query() ) {
 
     if ( is_post_type_archive( 'evenement' ) ) {
       $today = date('Y-m-d H:i:s');
@@ -174,9 +177,9 @@ function numerica_custom_query_vars( $query ) {
 				),
 			));
 		}
-
+		return $query;
   }
-  return $query;
+  
 }
 
 
@@ -192,7 +195,7 @@ function numerica_pre_get_posts( $query ) {
 	// check if the user is requesting an admin page 
 	// or current query is not the main query
 	if ( is_admin() || ! $query->is_main_query() ){
-			return;
+		return;
 	}
 
 	$meta_query = array();
