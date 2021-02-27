@@ -58,5 +58,25 @@
       </h1>
     </div>
   </div>
+  <div class="menuSubPages">
+    <div class="container-fluid">
+      <ul class="d-md-flex py-3 uppercase list-unstyled">
+        <?php  
+          global $post; // if outside the loop
+          if ( is_page() && $post->post_parent ) {
+            global $id;
+            $id = wp_get_post_parent_id( $id );
+          } else {
+            global $id;
+          }
+          wp_list_pages( array(
+            'child_of' => $id,
+            'title_li' => '',
+            'depth'    => 1,
+          ))
+        ?>
+      </ul>
+    </div>
+  </div>
 
 <?php endif; ?>
