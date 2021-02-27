@@ -38,7 +38,7 @@ Template Name: Équipe
             $photo    = get_field('user_photo', 'user_' . $user->ID );
             $team     = get_field('user_equipe', 'user_' . $user->ID );
             $usersort = get_field('user_sort', 'user_' . $user->ID );
-            print_r($usersort);
+            // print_r($usersort);
           
           ?>
             <?php if ( $team ) : ?>
