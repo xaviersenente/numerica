@@ -39,7 +39,7 @@ Template Name: Contact
         } ?>
 
         <?php if ( $mails ) : ?>
-          <h4>E-mails</h4>
+          <h4>E-mail</h4>
 
           <ul class="list-unstyled">
           <?php while(have_rows('infos_mails', 'infos')): the_row();
