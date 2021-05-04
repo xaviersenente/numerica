@@ -34,6 +34,7 @@
         <?php
           $minorPartners = get_posts( array(
             'post_type' => 'actionnaires',
+            'posts_per_page' => -1,
             'meta_query' => array(
               array(
                 'key'   => 'type_partner',
