@@ -13,10 +13,14 @@ Template Name: Concours Rubika
   <?php wp_head(); ?>
   <style>
     #gform_fields_4,
-    #gform_fields_4 .ginput_container_address {
+    #gform_fields_4 .ginput_container_address,
+    .clear-multi {
       display: flex;
       flex-wrap: wrap;
       column-gap: 24px;
+    }
+    .ginput_container_date {
+      flex: 1;
     }
     #gform_fields_4 .gfield--width-full,
     #gform_fields_4 .gfield--width-half,
@@ -50,14 +54,12 @@ Template Name: Concours Rubika
     <div class="container-fluid">
       <div class="row my-8">
         <div class="col-lg-8 offset-lg-2">
-          <h1>Inscription concours mastère</h1>
-          <p>Les informations demandées dans les champs marqués d'un astérisque (*) sont nécessaires pour établir votre dossier d'inscription. Merci de les compléter avec attention.</p>
           <?php
             if ( have_posts() ) :
               while ( have_posts() ) :
                 the_post();
 
-                the_content();
+                the_title('<h1>', '</h1>');
 
                 gravity_form( 4, false, false, false, '', false );
 
