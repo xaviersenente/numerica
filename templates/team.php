@@ -22,7 +22,7 @@ Template Name: Équipe
       
       
       $args = array(  
-        'role__not_in'  => ['administrator'],
+        'role__in'      => [ 'subscriber' ],
         'meta_key'		  => 'user_sort',
         'orderby'       => 'meta_value',
         'order'         => 'ASC'
